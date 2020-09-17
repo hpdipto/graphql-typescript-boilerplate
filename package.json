@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/app.js",
-    "dev": "nodemon -w schemas -e graphql src/app.ts",
+    "dev": "nodemon -w src -e ts,graphql src/app.ts",
     "build": "tsc -p ."
   },
   "author": "Haris Pasha Dipto",
