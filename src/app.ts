@@ -44,7 +44,7 @@ const issueList = () => {
 };
 
 // loading schema file, typeDefs and resolvers
-const schemaFile = path.join(__dirname, "./schemas/schema.graphql");
+const schemaFile = path.join(__dirname, "./schemas/schema.gql");
 const typeDefs = fs.readFileSync(schemaFile, "utf-8");
 
 // graphQL resolvers
