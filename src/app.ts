@@ -1,23 +1,17 @@
+import fs from "fs";
+import path from "path";
 import express, { Application, Request, Response, NextFunction } from "express";
 import { ApolloServer } from "apollo-server-express";
 
 // hard coded variables
 let aboutMessage: string = "Issue Tracker API v1.0";
 
-const setAboutMessage = (parent: any, { message }: { message: string }) => {
+const setAboutMessages = (parent: any, { message }: { message: string }) => {
 	return (aboutMessage = message);
 };
 
-// graphQL typeDefs
-const typeDefs: string = `
-	type Query {
-		about: String!
-	}
-
-	type Mutation {
-		setAboutMessage(message: String!): String
-	}
-`;
+const schemaFile = path.join(__dirname, "../schemas/schema.graphql");
+const typeDefs = fs.readFileSync(schemaFile, "utf-8");
 
 // graphQL resolvers
 const resolvers = {
@@ -26,7 +20,7 @@ const resolvers = {
 	},
 
 	Mutation: {
-		setAboutMessage,
+		setAboutMessages,
 	},
 };
 

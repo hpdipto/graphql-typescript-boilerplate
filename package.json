@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/app.js",
-    "dev": "nodemon src/app.ts",
+    "dev": "nodemon -w schemas -e graphql src/app.ts",
     "build": "tsc -p ."
   },
   "author": "Haris Pasha Dipto",
   "license": "MIT",
   "dependencies": {
+    "@types/graphql": "^14.5.0",
     "apollo-server-express": "^2.17.0",
     "apollo-server-types": "^0.5.1",
     "express": "^4.17.1",
