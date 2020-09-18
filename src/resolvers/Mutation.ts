@@ -18,7 +18,7 @@ let bookDB: types.Book[] = [
 	},
 ];
 
-// Mutation resolvers
+// 'addBook' resolvers
 const addBook = (
 	parent: any,
 	{ title, author, publisher, publishDate, price }: types.Book

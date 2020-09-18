@@ -18,7 +18,7 @@ let bookDB: types.Book[] = [
 	},
 ];
 
-// Query resolvers
+// 'books' resolvers
 const books = () => {
 	return bookDB;
 };
