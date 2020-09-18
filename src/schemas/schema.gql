@@ -1,8 +1,10 @@
+scalar GraphQLDate
+
 type Book {
 	title: String!
 	author: Author
 	publisher: String
-	publishDate: String
+	publishDate: GraphQLDate
 	price: Float!
 }
 

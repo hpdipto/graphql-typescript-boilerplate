@@ -2,7 +2,7 @@ export type Book {
 	title: string,
 	author: Author,
 	publisher: string,
-	publishDate: string,
+	publishDate: Date,
 	price: number
 }
 
