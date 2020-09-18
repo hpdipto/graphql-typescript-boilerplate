@@ -1,5 +1,7 @@
+import * as types from "../types";
+
 // hard coded variables
-let bookDB = [
+let bookDB: types.Book[] = [
 	{
 		title: "Young Muslim Guide to Modern World",
 		author: { name: "Sayyed Hussain Nassr", age: 90 },
@@ -24,33 +26,18 @@ const books = () => {
 // Mutation resolvers
 const addBook = (
 	parent: any,
-	{
-		title,
-		author,
-		publisher,
-		publishDate,
-		price,
-	}: {
-		title: string;
-		author: string;
-		publisher: string;
-		publishDate: string;
-		price: number;
-	}
+	{ title, author, publisher, publishDate, price }: types.Book
 ) => {
 	let book = {
 		title,
-		author: {
-			name: author,
-			age: 0,
-		},
+		author,
 		publisher,
 		publishDate,
 		price,
 	};
 
 	bookDB.push(book);
-	return "success";
+	return book;
 };
 
 // graphQL resolvers

@@ -1,6 +1,6 @@
 type Book {
 	title: String!
-	author: Author!
+	author: Author
 	publisher: String
 	publishDate: String
 	price: Float!
@@ -9,7 +9,11 @@ type Book {
 type Author {
 	name: String!
 	age: Int
-	books: [Book]
+}
+
+input inputAuthor {
+	name: String!
+	age: Int
 }
 
 type Query {
@@ -20,9 +24,9 @@ type Query {
 type Mutation {
 	addBook(
 		title: String!
-		author: String!
+		author: inputAuthor!
 		publisher: String
 		publishDate: String
 		price: Float!
-	): String
+	): Book
 }
