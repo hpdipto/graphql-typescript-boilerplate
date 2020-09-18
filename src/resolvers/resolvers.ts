@@ -26,6 +26,9 @@ const GraphQLDate = new GraphQLScalarType({
 	serialize(value) {
 		return value.toDateString();
 	},
+	parseValue(value) {
+		return new Date(value);
+	},
 });
 
 // Query resolvers

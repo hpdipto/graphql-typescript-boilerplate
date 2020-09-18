@@ -28,7 +28,7 @@ type Mutation {
 		title: String!
 		author: inputAuthor!
 		publisher: String
-		publishDate: String
+		publishDate: GraphQLDate
 		price: Float!
 	): Book
 }
