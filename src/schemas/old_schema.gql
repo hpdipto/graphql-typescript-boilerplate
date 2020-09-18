@@ -1,0 +1,46 @@
+scalar GraphQLDate
+
+type Issue {
+	id: Int!
+	title: String!
+	status: String!
+	owner: String
+	effort: Int
+	created: GraphQLDate!
+	due: GraphQLDate
+}
+
+input IssueInputs {
+	title: String!
+	"Optional, if not supplied, will be set to 'New'"
+	status: String
+	owner: String
+	effort: Int
+	due: GraphQLDate
+}
+
+type Query {
+	about: String!
+	issueList: [Issue!]!
+}
+
+type Mutation {
+	setAboutMessages(message: String!): String
+	issueAdd(issue: IssueInputs!): Issue!
+}
+
+const GraphQLDate = new GraphQLScalarType({
+	name: "GraphQLDate",
+	description: "A Date() type is GraphQL as a scaler",
+	serialize(value) {
+		return value.toISOString();
+	},
+});
+
+const setAboutMessages = (parent: any, { message }: { message: string }) => {
+	return (aboutMessage = message);
+};
+
+const issueList = () => {
+	return issueDB;
+};
