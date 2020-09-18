@@ -1,0 +1,12 @@
+query {
+  books {
+    title
+    price
+    author {
+      name
+      age
+    }
+    publisher
+    publishDate
+  }
+}
