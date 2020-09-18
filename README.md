@@ -2,4 +2,4 @@
 
 I'm trying to create my own boilerplate for GraphQL with TypeScript.
 
-But thigs get messed here, I hope I'll come with some cleaner code soon.
+Basic query and mutation is added in external files.
