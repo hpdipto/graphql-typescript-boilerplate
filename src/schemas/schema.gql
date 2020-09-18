@@ -18,9 +18,10 @@ input inputAuthor {
 	age: Int
 }
 
+# Queries and Mutations
+
 type Query {
 	books: [Book]
-	authors: [Author]
 }
 
 type Mutation {

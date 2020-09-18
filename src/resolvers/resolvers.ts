@@ -1,5 +1,7 @@
 import { GraphQLScalarType } from "graphql";
 import { Kind } from "graphql/language";
+import Query from "./Query";
+import Mutation from "./Mutation";
 import * as types from "../types";
 
 // hard coded variables
@@ -60,13 +62,8 @@ const addBook = (
 
 // graphQL resolvers
 const resolvers = {
-	Query: {
-		books,
-	},
-
-	Mutation: {
-		addBook,
-	},
+	Query,
+	Mutation,
 	GraphQLDate,
 };
 
