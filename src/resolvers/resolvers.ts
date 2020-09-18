@@ -1,4 +1,5 @@
 import { GraphQLScalarType } from "graphql";
+import { Kind } from "graphql/language";
 import * as types from "../types";
 
 // hard coded variables
@@ -20,6 +21,7 @@ let bookDB: types.Book[] = [
 ];
 
 // GraphQLDate - a custom scaler type for Date object
+// For in depth understanding: https://stackoverflow.com/a/41513681/9481106
 const GraphQLDate = new GraphQLScalarType({
 	name: "GraphQLDate",
 	description: "A custom scaler type for Date object",
@@ -28,6 +30,9 @@ const GraphQLDate = new GraphQLScalarType({
 	},
 	parseValue(value) {
 		return new Date(value);
+	},
+	parseLiteral(ast) {
+		return ast.kind == Kind.STRING ? new Date(ast.value) : undefined;
 	},
 });
 
