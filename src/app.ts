@@ -3,6 +3,14 @@ import path from "path";
 import express, { Application, Request, Response, NextFunction } from "express";
 import { ApolloServer } from "apollo-server-express";
 import { GraphQLScalarType } from "graphql";
+import mongoose from "mongoose";
+
+// DB configuration
+const URI: string = "mongodb://localhost/GraphQLTypeScriptBoilerplate";
+mongoose
+	.connect(URI, { useNewUrlParser: true })
+	.then(() => console.log(`MongoDB connected successfully`))
+	.catch((err) => console.log(err));
 
 // loading schema file, typeDefs and resolvers
 const schemaFile = path.join(__dirname, "./schemas/schema.gql");
