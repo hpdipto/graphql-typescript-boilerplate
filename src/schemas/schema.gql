@@ -1,7 +1,8 @@
 scalar GraphQLDate
 
 type Book {
-	title: String!
+	id: ID!
+	title: String
 	author: Author
 	publisher: String
 	publishDate: GraphQLDate
@@ -18,6 +19,15 @@ input inputAuthor {
 	age: Int
 }
 
+input updateBook {
+	id: ID!
+	title: String
+	author: inputAuthor
+	publisher: String
+	publishDate: GraphQLDate
+	price: Float
+}
+
 # Queries and Mutations
 
 type Query {
@@ -32,4 +42,6 @@ type Mutation {
 		publishDate: GraphQLDate
 		price: Float!
 	): Book
+
+	updateBook(book: updateBook!): Book
 }
