@@ -1,6 +1,6 @@
 import { Book } from "../models/Book";
 
-// 'books' resolvers
+// 'books' resolver
 const books = () => {
 	// return bookDB;
 	return Book.find({});
